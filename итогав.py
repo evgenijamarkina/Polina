@@ -1,5 +1,4 @@
 import tkinter as tk
-
 conversion_table = {
     "USD": {
         "EUR": 0.85,
@@ -44,29 +43,22 @@ conversion_table = {
         "CAD": 0.93
     }
 }
-
 def convert_currency():
     amount = float(entry.get())
     base_currency = base_currency_var.get()
     target_currency = target_currency_var.get()
-
     if base_currency == target_currency:
         converted_amount = amount
     else:
         conversion_rate = conversion_table[base_currency][target_currency]
         converted_amount = amount * conversion_rate
-
     result_label.config(text=str(converted_amount))
-
 window = tk.Tk()
 window.title("Currency Converter")
-
 label1 = tk.Label(window, text="Amount:")
 label1.pack()
-
 entry = tk.Entry(window)
 entry.pack()
-
 label2 = tk.Label(window, text="Base Currency:")
 label2.pack()
 
